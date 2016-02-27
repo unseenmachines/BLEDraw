@@ -12,6 +12,7 @@ class ViewController: UIViewController, BLEManagerDelegate {
 
     @IBOutlet weak var drawView: DrawView!
     
+    @IBOutlet weak var connectedLabel: UILabel!
     @IBAction func clearPressed() {
        
         drawView.clear()

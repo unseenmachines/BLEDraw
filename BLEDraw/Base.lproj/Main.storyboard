@@ -41,16 +41,29 @@
                                     <action selector="clearPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="cU5-Ud-TqQ"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrN-Py-Sb6">
+                                <rect key="frame" x="124" y="399" width="85" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="Zhi-cg-woA"/>
+                                    <constraint firstAttribute="height" constant="21" id="ihp-AK-0pj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xrN-Py-Sb6" firstAttribute="top" secondItem="seX-Mi-Cs3" secondAttribute="bottom" constant="8" id="4PB-oL-WIo"/>
                             <constraint firstItem="seX-Mi-Cs3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AtH-Xf-3Mp"/>
                             <constraint firstItem="9lX-R3-JJe" firstAttribute="leading" secondItem="seX-Mi-Cs3" secondAttribute="leading" id="QpD-0d-zch"/>
+                            <constraint firstItem="xrN-Py-Sb6" firstAttribute="leading" secondItem="seX-Mi-Cs3" secondAttribute="leading" id="lMv-DC-TiG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9lX-R3-JJe" secondAttribute="bottom" constant="8" id="pFy-Sk-WWP"/>
                             <constraint firstItem="seX-Mi-Cs3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uft-Zi-da0"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="connectedLabel" destination="xrN-Py-Sb6" id="DIc-HR-7nX"/>
                         <outlet property="drawView" destination="seX-Mi-Cs3" id="WD0-Pv-KYx"/>
                     </connections>
                 </viewController>
