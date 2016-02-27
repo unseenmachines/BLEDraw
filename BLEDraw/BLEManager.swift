@@ -153,6 +153,16 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         peripheral.discoverServices([serviceUUID])
     }
     
+    func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+      
+        if (peripheral.isEqual(self.discoveredPeripheral)) {
+            
+            self.drawCharacteristic = nil
+            self.discoveredPeripheral = nil
+        }
+        
+    }
+    
   
 //# MARK: Peripheral Delegate methods
     
