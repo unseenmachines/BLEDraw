@@ -47,6 +47,18 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         self.centralManager.delegate = self
         
     }
+    
+//# MARK: - Basic Methods
+    
+    func isConnected() -> Bool {
+       
+        if self.drawCharacteristic != nil {
+            return true
+        } else {
+            return false
+        }
+        
+    }
    
 //# MARK: - Peripheral Manager methods
     
