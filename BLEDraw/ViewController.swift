@@ -36,8 +36,12 @@ class ViewController: UIViewController, BLEManagerDelegate {
         guard let touch = touches.first else { return }
         
         guard touch.view! == self.drawView else { return }
+    
+        let point = touch.locationInView(touch.view)
         
-        self.drawView.startStroke(touch.locationInView(touch.view))
+        self.drawView.startStroke(point)
+      
+        self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.start, point: point))
         
     }
     
