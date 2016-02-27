@@ -35,6 +35,10 @@ class ViewController: UIViewController, BLEManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+   
+//# MARK: Touch related methods
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         guard let touch = touches.first else { return }
         
@@ -68,6 +72,9 @@ class ViewController: UIViewController, BLEManagerDelegate {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.drawView.endStroke()
     }
+    
+    
+//# MARK: BLEManager delegate methods
     
     func didReceiveMessage(message: BLEMessage) {
         
