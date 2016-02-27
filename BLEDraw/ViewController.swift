@@ -26,6 +26,8 @@ class ViewController: UIViewController, BLEManagerDelegate {
         
         bluetoothManager.delegate = self
         
+        self.updateConnectionLabel()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,6 +81,22 @@ class ViewController: UIViewController, BLEManagerDelegate {
             
         }
         
+        
+    }
+    
+    func connectionStateChanged(connected: Bool) {
+       
+        self.updateConnectionLabel()
+        
+    }
+    
+    func updateConnectionLabel() {
+       
+        if self.bluetoothManager.isConnected() {
+            self.connectedLabel.hidden = false
+        } else {
+            self.connectedLabel.hidden = true
+        }
         
     }
 
