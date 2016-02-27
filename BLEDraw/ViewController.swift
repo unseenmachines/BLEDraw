@@ -12,14 +12,11 @@ class ViewController: UIViewController, BLEManagerDelegate {
 
     @IBOutlet weak var drawView: DrawView!
     
-    var recognizer : UITapGestureRecognizer! = nil
     let bluetoothManager = BLEManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        recognizer = UITapGestureRecognizer(target: self, action: "drawViewTapped:")
-        //drawView.addGestureRecognizer(recognizer)
+        
         bluetoothManager.delegate = self
         
     }
