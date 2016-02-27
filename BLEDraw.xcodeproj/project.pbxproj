@@ -13,6 +13,8 @@
 		8B93A8231C7FA3C4000A0AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B93A8221C7FA3C4000A0AA9 /* Assets.xcassets */; };
 		8B93A8261C7FA3C4000A0AA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B93A8241C7FA3C4000A0AA9 /* LaunchScreen.storyboard */; };
 		8B93A8311C7FA3C5000A0AA9 /* BLEDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93A8301C7FA3C5000A0AA9 /* BLEDrawTests.swift */; };
+		8B93A83C1C7FB34F000A0AA9 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93A83B1C7FB34F000A0AA9 /* BLEManager.swift */; };
+		8BED9E711C80C40700B3D60D /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED9E701C80C40700B3D60D /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		8B93A82C1C7FA3C5000A0AA9 /* BLEDrawTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEDrawTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B93A8301C7FA3C5000A0AA9 /* BLEDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDrawTests.swift; sourceTree = "<group>"; };
 		8B93A8321C7FA3C5000A0AA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B93A83B1C7FB34F000A0AA9 /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		8BED9E701C80C40700B3D60D /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +83,12 @@
 			children = (
 				8B93A81B1C7FA3C4000A0AA9 /* AppDelegate.swift */,
 				8B93A81D1C7FA3C4000A0AA9 /* ViewController.swift */,
+				8BED9E701C80C40700B3D60D /* DrawView.swift */,
 				8B93A81F1C7FA3C4000A0AA9 /* Main.storyboard */,
 				8B93A8221C7FA3C4000A0AA9 /* Assets.xcassets */,
 				8B93A8241C7FA3C4000A0AA9 /* LaunchScreen.storyboard */,
 				8B93A8271C7FA3C4000A0AA9 /* Info.plist */,
+				8B93A83B1C7FB34F000A0AA9 /* BLEManager.swift */,
 			);
 			path = BLEDraw;
 			sourceTree = "<group>";
@@ -146,6 +152,7 @@
 				TargetAttributes = {
 					8B93A8171C7FA3C4000A0AA9 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = LAYGV76UEP;
 					};
 					8B93A82B1C7FA3C5000A0AA9 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -198,6 +205,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B93A81E1C7FA3C4000A0AA9 /* ViewController.swift in Sources */,
+				8B93A83C1C7FB34F000A0AA9 /* BLEManager.swift in Sources */,
+				8BED9E711C80C40700B3D60D /* DrawView.swift in Sources */,
 				8B93A81C1C7FA3C4000A0AA9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +336,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BLEDraw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliotsinyor.BLEDraw;
@@ -338,6 +348,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BLEDraw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliotsinyor.BLEDraw;
@@ -388,6 +399,7 @@
 				8B93A8371C7FA3C5000A0AA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B93A8381C7FA3C5000A0AA9 /* Build configuration list for PBXNativeTarget "BLEDrawTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +408,7 @@
 				8B93A83A1C7FA3C5000A0AA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
