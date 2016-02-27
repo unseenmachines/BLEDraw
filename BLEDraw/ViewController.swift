@@ -67,10 +67,17 @@ class ViewController: UIViewController, BLEManagerDelegate {
     }
     
     func didReceiveMessage(message: BLEMessage) {
-       
-        let point = message.point()
-       
-        self.drawView.addPointToStroke(point, color: UIColor.redColor())
+        
+        if message.messageType == MessageType.point {
+            
+            self.drawView.addPointToStroke(message.point(), color: UIColor.redColor())
+
+        } else if message.messageType == MessageType.start {
+           
+            self.drawView.startStroke(message.point())
+            
+        }
+        
         
     }
 
