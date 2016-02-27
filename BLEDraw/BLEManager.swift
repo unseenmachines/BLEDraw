@@ -183,7 +183,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         }
       
         pointCounter += 1
-        if (pointCounter == numberofPointsPerPacket) {
+        if (pointCounter == numberofPointsPerPacket || message.messageType == MessageType.start) {
             
             discoveredPeripheral.writeValue(message.rawData, forCharacteristic: drawCharacteristic, type: CBCharacteristicWriteType.WithResponse)
             pointCounter = 0
