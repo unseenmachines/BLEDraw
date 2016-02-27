@@ -12,6 +12,7 @@ import CoreBluetooth
 protocol BLEManagerDelegate {
    
     func didReceiveMessage(message : BLEMessage)
+    func connectionStateChanged(connected : Bool)
     
 }
 
@@ -159,6 +160,9 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
             
             self.drawCharacteristic = nil
             self.discoveredPeripheral = nil
+            
+            self.delegate.connectionStateChanged(self.isConnected())
+            
         }
         
     }
@@ -187,6 +191,8 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
             if characteristic.UUID == charactertisticUUID {
                 print("Discovered characteristic!")
                 drawCharacteristic = characteristic
+                
+                self.delegate.connectionStateChanged(self.isConnected())
             }
         }
         
