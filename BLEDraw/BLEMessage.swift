@@ -28,3 +28,22 @@ func messageTypeFromByte(byte: UInt8) -> MessageType {
     }
     
 }
+
+extension NSData {
+   
+    func firstByte() -> UInt8! {
+        
+        guard self.length > 0 else { return nil }
+        
+        var byte : UInt8 = 0x00
+       
+        let firstByte = self.subdataWithRange(NSRange(location: 0, length: 1))
+       
+        firstByte.getBytes(&byte, length: 1)
+        
+        return byte
+    }
+    
+}
+
+
