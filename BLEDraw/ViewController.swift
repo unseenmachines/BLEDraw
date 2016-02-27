@@ -12,6 +12,12 @@ class ViewController: UIViewController, BLEManagerDelegate {
 
     @IBOutlet weak var drawView: DrawView!
     
+    @IBAction func clearPressed() {
+       
+        drawView.clear()
+        
+    }
+    
     let bluetoothManager = BLEManager()
     
     override func viewDidLoad() {

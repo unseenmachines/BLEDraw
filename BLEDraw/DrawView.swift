@@ -99,6 +99,10 @@ class DrawView : UIView {
         UIGraphicsEndImageContext();
         
     }
+    
+    func clear() {
+        self.mainImage.image = nil
+    }
   
     
     

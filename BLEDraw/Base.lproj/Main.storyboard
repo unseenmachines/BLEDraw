@@ -34,10 +34,19 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lX-R3-JJe">
+                                <rect key="frame" x="124" y="562" width="36" height="30"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="cU5-Ud-TqQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="seX-Mi-Cs3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AtH-Xf-3Mp"/>
+                            <constraint firstItem="9lX-R3-JJe" firstAttribute="leading" secondItem="seX-Mi-Cs3" secondAttribute="leading" id="QpD-0d-zch"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9lX-R3-JJe" secondAttribute="bottom" constant="8" id="pFy-Sk-WWP"/>
                             <constraint firstItem="seX-Mi-Cs3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uft-Zi-da0"/>
                         </constraints>
                     </view>
