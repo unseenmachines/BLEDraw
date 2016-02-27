@@ -47,3 +47,46 @@ extension NSData {
 }
 
 
+struct BLEMessage {
+    
+    let rawData : NSData! //includes the prefix byte and the message body
+    let messageType : MessageType!
+    
+    init(type: MessageType, point: CGPoint) {
+       
+        let ptString : NSString = NSStringFromCGPoint(point)
+        
+        let data = NSMutableData(bytes: [type.rawValue], length: 1)
+       
+        data.appendData(ptString.dataUsingEncoding(NSUTF8StringEncoding)!)
+     
+        rawData = NSData(data: data)
+        
+        messageType = type
+        
+    }
+    
+    init(data: NSData) {
+     
+        messageType = messageTypeFromByte(data.firstByte() ?? 0x00)
+        
+        rawData = data
+ 
+    }
+   
+    func point() -> CGPoint! {
+       
+        guard rawData != nil else { return nil }
+       
+        let ptString = String(data: rawData, encoding: NSUTF8StringEncoding)
+        
+        guard ptString != nil else { return nil }
+      
+        let point = CGPointFromString(ptString!)
+       
+        return point
+        
+    }
+    
+    
+}
