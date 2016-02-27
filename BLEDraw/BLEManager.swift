@@ -11,7 +11,7 @@ import CoreBluetooth
 
 protocol BLEManagerDelegate {
    
-    func didReceivePoint(point : NSData)
+    func didReceiveMessage(message : BLEMessage)
     
 }
 
@@ -90,7 +90,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
                
                 guard delegate != nil else {return }
                 
-                delegate.didReceivePoint(request.value!)
+                delegate.didReceiveMessage(BLEMessage(data: request.value!))
                 
             }
         }
@@ -170,7 +170,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         
     }
     
-    func sendToRemote(point: NSData) {
+    func sendToRemote(message : BLEMessage) {
        
         guard drawCharacteristic != nil else {
             print("No draw characteristic exists remotely")
@@ -185,7 +185,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         pointCounter += 1
         if (pointCounter == numberofPointsPerPacket) {
             
-            discoveredPeripheral.writeValue(point, forCharacteristic: drawCharacteristic, type: CBCharacteristicWriteType.WithResponse)
+            discoveredPeripheral.writeValue(message.rawData, forCharacteristic: drawCharacteristic, type: CBCharacteristicWriteType.WithResponse)
             pointCounter = 0
         }
         

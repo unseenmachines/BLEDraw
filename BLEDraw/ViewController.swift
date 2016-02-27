@@ -49,14 +49,12 @@ class ViewController: UIViewController, BLEManagerDelegate {
         guard touch.view! == self.drawView else { return }
         
         //print("touches moved: \(touch.locationInView(touch.view))")
+       
+        let point = touch.locationInView(touch.view)
         
-        self.drawView.addPointToStroke(touch.locationInView(touch.view), color: UIColor.blackColor())
+        self.drawView.addPointToStroke(point, color: UIColor.blackColor())
         
-        let ptString : NSString = NSStringFromCGPoint(touch.locationInView(touch.view))
-        
-        let ptData = ptString.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        self.bluetoothManager.sendToRemote(ptData!)
+        self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.point, point: point))
         
     }
     
@@ -64,11 +62,9 @@ class ViewController: UIViewController, BLEManagerDelegate {
         self.drawView.endStroke()
     }
     
-    func didReceivePoint(point: NSData) {
+    func didReceiveMessage(message: BLEMessage) {
        
-        let ptString = String(data: point, encoding: NSUTF8StringEncoding)
-       
-        let point = CGPointFromString(ptString!)
+        let point = message.point()
        
         self.drawView.addPointToStroke(point, color: UIColor.redColor())
         
