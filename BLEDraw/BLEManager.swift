@@ -221,6 +221,11 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         }
         
     }
+   
+    func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didUnsubscribeFromCharacteristic characteristic: CBCharacteristic) {
+        print("Central unsubscribed")
+        self.handleDisconnection()
+    }
     
     func sendToRemote(message : BLEMessage) {
        
