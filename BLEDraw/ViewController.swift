@@ -97,9 +97,8 @@ class ViewController: UIViewController, BLEManagerDelegate {
     }
     
     func connectionStateChanged(connected: Bool) {
-       
-        self.updateConnectionLabel()
-        
+      
+            self.updateConnectionLabel()
     }
     
     func updateConnectionLabel() {
