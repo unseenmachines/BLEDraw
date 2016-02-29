@@ -64,6 +64,19 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         }
         
     }
+    
+    func handleDisconnection() {
+       
+        self.drawCharacteristic = nil
+        self.discoveredPeripheral = nil
+        
+        self.delegate.connectionStateChanged(self.isConnected())
+        
+        if (self.peripheralManager.state == CBPeripheralManagerState.PoweredOn) {
+            self.startScanningForPeripherals()
+        }
+        
+    }
    
 //# MARK: - Peripheral Manager methods
     
