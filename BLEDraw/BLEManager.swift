@@ -87,6 +87,9 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
             self.startPeripheralService()
            
             print("Starting peripheral service")
+        } else if (peripheral.state == CBPeripheralManagerState.PoweredOff) {
+            
+            self.handleDisconnection()
         }
         
     }
@@ -136,8 +139,11 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
            
             self.startScanningForPeripherals()
             
+        } else if (centralManager.state == CBCentralManagerState.PoweredOff) {
+            
+            self.handleDisconnection()
+            
         }
-        
         
     }
     
