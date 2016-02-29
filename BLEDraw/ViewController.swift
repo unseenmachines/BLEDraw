@@ -104,12 +104,13 @@ class ViewController: UIViewController, BLEManagerDelegate {
     
     func updateConnectionLabel() {
        
-        if self.bluetoothManager.isConnected() {
-            self.connectedLabel.hidden = false
-        } else {
-            self.connectedLabel.hidden = true
-        }
-        
+        dispatch_async(dispatch_get_main_queue(), {
+            if self.bluetoothManager.isConnected() {
+                self.connectedLabel.hidden = false
+            } else {
+                self.connectedLabel.hidden = true
+            }
+        })
     }
 
 
