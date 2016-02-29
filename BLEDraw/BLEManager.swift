@@ -182,12 +182,9 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
       
         if (peripheral.isEqual(self.discoveredPeripheral)) {
-            
-            self.drawCharacteristic = nil
-            self.discoveredPeripheral = nil
-            
-            self.delegate.connectionStateChanged(self.isConnected())
-            
+           
+            self.handleDisconnection()
+   
         }
         
     }
