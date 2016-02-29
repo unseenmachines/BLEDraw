@@ -131,6 +131,8 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     func startScanningForPeripherals() {
         print("Scanning for peripherals")
         //TODO: add dedicated serial queue for BT activity
+        
+        self.centralManager.stopScan()
         self.centralManager.scanForPeripheralsWithServices([serviceUUID], options: nil)
         
     }
