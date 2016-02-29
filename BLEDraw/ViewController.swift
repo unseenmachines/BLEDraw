@@ -77,16 +77,21 @@ class ViewController: UIViewController, BLEManagerDelegate {
 //# MARK: BLEManager delegate methods
     
     func didReceiveMessage(message: BLEMessage) {
-        
-        if message.messageType == MessageType.point {
-            
-            self.drawView.addPointToStroke(message.point(), color: UIColor.redColor())
-
-        } else if message.messageType == MessageType.start {
+       
+        dispatch_async(dispatch_get_main_queue(), {
            
-            self.drawView.startStroke(message.point())
+            if message.messageType == MessageType.point {
+                
+                self.drawView.addPointToStroke(message.point(), color: UIColor.redColor())
+                
+            } else if message.messageType == MessageType.start {
+                
+                self.drawView.startStroke(message.point())
+                
+            }
             
-        }
+        })
+        
         
         
     }
