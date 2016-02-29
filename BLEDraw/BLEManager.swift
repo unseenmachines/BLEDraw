@@ -215,6 +215,8 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
                 drawCharacteristic = characteristic
                 
                 self.delegate.connectionStateChanged(self.isConnected())
+                
+                peripheral.setNotifyValue(true, forCharacteristic: characteristic)
             }
         }
         
