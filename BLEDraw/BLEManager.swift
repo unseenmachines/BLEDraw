@@ -20,8 +20,8 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
 
     static let sharedInstance = BLEManager()
    
-    let peripheralManager = CBPeripheralManager()
-    let centralManager = CBCentralManager()
+    var peripheralManager : CBPeripheralManager!
+    var centralManager : CBCentralManager!
     
     var drawCharacteristic : CBCharacteristic!
     
@@ -32,6 +32,8 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
    
     let numberofPointsPerPacket = 2
     var pointCounter = 0
+ 
+    let bluetoothQueue = dispatch_queue_create("com.elliotsinyor.blequeue", DISPATCH_QUEUE_SERIAL);
   
     //Use one service + one characteristic for everything
     let serviceUUID = CBUUID(string: "404EA254-E72C-4D6F-BEB2-BD87BCE36141")
@@ -43,9 +45,11 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     override init() {
         
         super.init()
+       
+        self.centralManager = CBCentralManager(delegate: self, queue: bluetoothQueue)
+       
+        self.peripheralManager = CBPeripheralManager(delegate: self, queue: bluetoothQueue)
         
-        self.peripheralManager.delegate = self
-        self.centralManager.delegate = self
         
     }
     
