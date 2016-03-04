@@ -53,17 +53,17 @@ class DrawView : UIView {
     }
     
     func setupImageViews() {
-      
+     
+        //If they have already been created, just adjust them
         if (mainImage != nil && incrementalImage != nil) {
             mainImage.frame = self.bounds
             incrementalImage.frame = self.bounds
             return
         }
         
-        
         mainImage = UIImageView(frame: self.bounds)
         incrementalImage = UIImageView(frame: self.bounds)
-        print("imagesizes: \(self.bounds)")
+        
         self.addSubview(mainImage)
         self.addSubview(incrementalImage)
         
