@@ -68,7 +68,10 @@ class ViewController: UIViewController, BLEManagerDelegate {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
         self.drawView.endStroke()
+        
+        self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.touchEnded))
     }
     
     
@@ -85,6 +88,10 @@ class ViewController: UIViewController, BLEManagerDelegate {
             } else if message.messageType == MessageType.touchStarted {
                 
                 self.drawView.startStroke(message.point())
+                
+            } else if message.messageType == MessageType.touchEnded {
+                
+                self.drawView.endStroke()
                 
             }
             
