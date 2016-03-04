@@ -28,7 +28,7 @@ extension UIColor {
 class DrawView : UIView {
   
     //This holds the previously drawn point. The array holds 2 points, one for the local line (index 0) and one for the remote line (index 1)
-    var previousPoints : [CGPoint!]!
+    var previousPoints : [CGPoint!]! = [nil, nil]
    
     var mainImage : UIImageView!
     var incrementalImage : UIImageView!
