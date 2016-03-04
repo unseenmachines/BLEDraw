@@ -49,10 +49,6 @@ class DrawView : UIView {
         
     }
     
-    override func drawRect(rect: CGRect) {
-        
-    }
-    
     func setupImageViews() {
      
         //If they have already been created, just adjust them
