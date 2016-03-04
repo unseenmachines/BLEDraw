@@ -58,11 +58,12 @@ class ViewController: UIViewController, BLEManagerDelegate {
    
 //# MARK: Touch related methods
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
         guard let touch = touches.first else { return }
         
         guard touch.view! == self.drawView else { return }
-    
-        let point = touch.locationInView(touch.view)
+        
+        let point = touch.normalizedLocationInView(touch.view)
         
         self.drawView.startStroke(point)
       
@@ -76,8 +77,8 @@ class ViewController: UIViewController, BLEManagerDelegate {
         guard let touch = touches.first else { return }
        
         guard touch.view! == self.drawView else { return }
-      
-        let point = touch.locationInView(touch.view)
+        
+        let point = touch.normalizedLocationInView(touch.view)
         
         self.drawView.addPointToStroke(point, color: UIColor.blackColor())
         
