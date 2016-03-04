@@ -39,8 +39,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     let serviceUUID = CBUUID(string: "404EA254-E72C-4D6F-BEB2-BD87BCE36141")
     let charactertisticUUID = CBUUID(string: "922D2EAF-45B0-4E89-A80F-66B2A4C04705")
 
-      var characteristic : CBMutableCharacteristic = CBMutableCharacteristic(type: CBUUID(string: "922D2EAF-45B0-4E89-A80F-66B2A4C04705"), properties: [CBCharacteristicProperties.Write, CBCharacteristicProperties.Indicate], value: nil, permissions: CBAttributePermissions.Writeable)
-    
+    var characteristic : CBMutableCharacteristic!
     
     override init() {
         
