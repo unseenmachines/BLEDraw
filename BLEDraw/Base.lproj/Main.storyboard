@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="seX-Mi-Cs3" customClass="DrawView" customModule="BLEDraw" customModuleProvider="target">
-                                <rect key="frame" x="124" y="208" width="353" height="183"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="534"/>
                                 <color key="backgroundColor" red="0.94160353539999997" green="0.94160353539999997" blue="0.94160353539999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -30,19 +31,21 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="1qg-Re-dGw"/>
+                                        <exclude reference="SXa-eG-nOs"/>
                                         <exclude reference="dRo-Oj-urL"/>
+                                        <exclude reference="ngQ-B4-wsN"/>
                                     </mask>
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lX-R3-JJe">
-                                <rect key="frame" x="124" y="562" width="36" height="30"/>
+                                <rect key="frame" x="20" y="550" width="36" height="30"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
                                     <action selector="clearPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="cU5-Ud-TqQ"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrN-Py-Sb6">
-                                <rect key="frame" x="124" y="399" width="85" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrN-Py-Sb6">
+                                <rect key="frame" x="495" y="554" width="85" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="Zhi-cg-woA"/>
                                     <constraint firstAttribute="height" constant="21" id="ihp-AK-0pj"/>
@@ -54,13 +57,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xrN-Py-Sb6" firstAttribute="top" secondItem="seX-Mi-Cs3" secondAttribute="bottom" constant="8" id="4PB-oL-WIo"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="seX-Mi-Cs3" secondAttribute="bottom" constant="66" id="1pW-8o-JZf"/>
+                            <constraint firstItem="seX-Mi-Cs3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="2fm-FC-xiE"/>
+                            <constraint firstItem="xrN-Py-Sb6" firstAttribute="top" secondItem="seX-Mi-Cs3" secondAttribute="bottom" constant="12" id="4PB-oL-WIo"/>
+                            <constraint firstItem="seX-Mi-Cs3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="6mq-sD-fmB"/>
                             <constraint firstItem="seX-Mi-Cs3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AtH-Xf-3Mp"/>
-                            <constraint firstItem="9lX-R3-JJe" firstAttribute="leading" secondItem="seX-Mi-Cs3" secondAttribute="leading" id="QpD-0d-zch"/>
+                            <constraint firstItem="9lX-R3-JJe" firstAttribute="leading" secondItem="seX-Mi-Cs3" secondAttribute="leading" constant="20" id="QpD-0d-zch"/>
+                            <constraint firstItem="xrN-Py-Sb6" firstAttribute="trailing" secondItem="seX-Mi-Cs3" secondAttribute="trailing" constant="-20" id="aE9-i2-8sv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="seX-Mi-Cs3" secondAttribute="trailing" constant="-20" id="j33-7a-Vn1"/>
                             <constraint firstItem="xrN-Py-Sb6" firstAttribute="leading" secondItem="seX-Mi-Cs3" secondAttribute="leading" id="lMv-DC-TiG"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9lX-R3-JJe" secondAttribute="bottom" constant="8" id="pFy-Sk-WWP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9lX-R3-JJe" secondAttribute="bottom" constant="20" id="pFy-Sk-WWP"/>
+                            <constraint firstItem="xrN-Py-Sb6" firstAttribute="centerY" secondItem="9lX-R3-JJe" secondAttribute="centerY" id="pgi-Ou-5oh"/>
                             <constraint firstItem="seX-Mi-Cs3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uft-Zi-da0"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AtH-Xf-3Mp"/>
+                                <exclude reference="uft-Zi-da0"/>
+                                <exclude reference="4PB-oL-WIo"/>
+                                <exclude reference="lMv-DC-TiG"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="connectedLabel" destination="xrN-Py-Sb6" id="DIc-HR-7nX"/>
@@ -69,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="920" y="633"/>
+            <point key="canvasLocation" x="618" y="687"/>
         </scene>
     </scenes>
 </document>
