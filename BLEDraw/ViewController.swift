@@ -48,7 +48,7 @@ class ViewController: UIViewController, BLEManagerDelegate {
         
         self.drawView.startStroke(point)
       
-        self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.start, point: point))
+        self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.touchStarted, point: point))
         
     }
     
@@ -63,7 +63,7 @@ class ViewController: UIViewController, BLEManagerDelegate {
         
         self.drawView.addPointToStroke(point, color: UIColor.blackColor())
         
-        self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.point, point: point))
+        self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.touchMoved, point: point))
         
     }
     
@@ -78,11 +78,11 @@ class ViewController: UIViewController, BLEManagerDelegate {
        
         dispatch_async(dispatch_get_main_queue(), {
            
-            if message.messageType == MessageType.point {
+            if message.messageType == MessageType.touchMoved {
                 
                 self.drawView.addPointToStroke(message.point(), color: UIColor.redColor())
                 
-            } else if message.messageType == MessageType.start {
+            } else if message.messageType == MessageType.touchStarted {
                 
                 self.drawView.startStroke(message.point())
                 
