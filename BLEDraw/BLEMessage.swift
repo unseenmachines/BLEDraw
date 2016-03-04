@@ -73,7 +73,7 @@ struct BLEMessage {
        
         messageType = type
         
-        rawData = NSData()
+        rawData = NSData(bytes: [type.rawValue], length: 1)
         
     }
     
