@@ -42,9 +42,9 @@ class DrawView : UIView {
         
     }
    
-    func startStroke(point: CGPoint) {
+    func startStroke(normalizedPoint: CGPoint) {
       
-        previousPoint = point
+        previousPoint = self.denormalize(normalizedPoint)
         
     }
     
@@ -61,11 +61,13 @@ class DrawView : UIView {
     }
     
     
-    func addPointToStroke(point: CGPoint, color: UIColor) {
+    func addPointToStroke(normalizedPoint: CGPoint, color: UIColor) {
        
         if (previousPoint == nil) {
-            previousPoint = point
+            previousPoint = self.denormalize(normalizedPoint)
         }
+        
+        let point = self.denormalize(normalizedPoint)
         
         UIGraphicsBeginImageContext(self.frame.size);
         self.incrementalImage.image?.drawInRect(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
