@@ -26,8 +26,9 @@ extension UIColor {
 }
 
 class DrawView : UIView {
-   
-    var previousPoint : CGPoint!
+  
+    //This holds the previously drawn point. The array holds 2 points, one for the local line (index 0) and one for the remote line (index 1)
+    var previousPoints : [CGPoint!]!
    
     var mainImage : UIImageView!
     var incrementalImage : UIImageView!
@@ -42,9 +43,9 @@ class DrawView : UIView {
         
     }
    
-    func startStroke(normalizedPoint: CGPoint) {
+    func startStroke(normalizedPoint: CGPoint, lineIndex : Int) {
       
-        previousPoint = self.denormalize(normalizedPoint)
+        previousPoints[lineIndex] = self.denormalize(normalizedPoint)
         
     }
     
@@ -71,10 +72,10 @@ class DrawView : UIView {
     }
 
     
-    func addPointToStroke(normalizedPoint: CGPoint, color: UIColor) {
+    func addPointToStroke(normalizedPoint: CGPoint, color: UIColor, lineIndex : Int) {
        
-        if (previousPoint == nil) {
-            previousPoint = self.denormalize(normalizedPoint)
+        if (previousPoints[lineIndex] == nil) {
+            previousPoints[lineIndex] = self.denormalize(normalizedPoint)
         }
         
         let point = self.denormalize(normalizedPoint)
@@ -83,7 +84,7 @@ class DrawView : UIView {
         self.incrementalImage.image?.drawInRect(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextMoveToPoint(context, previousPoint.x, previousPoint.y);
+        CGContextMoveToPoint(context, previousPoints[lineIndex].x, previousPoints[lineIndex].y);
         CGContextAddLineToPoint(context, point.x, point.y);
         CGContextSetLineCap(context, CGLineCap.Round);
         CGContextSetLineWidth(context, 2.0 );
@@ -104,7 +105,7 @@ class DrawView : UIView {
         
         UIGraphicsEndImageContext();
        
-        previousPoint = point
+        previousPoints[lineIndex] = point
         
     }
     
