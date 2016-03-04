@@ -70,7 +70,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         self.drawCharacteristic = nil
         self.discoveredPeripheral = nil
         
-        self.delegate.connectionStateChanged(self.isConnected())
+        self.delegate?.connectionStateChanged(self.isConnected())
         
         if (self.peripheralManager.state == CBPeripheralManagerState.PoweredOn) {
            
