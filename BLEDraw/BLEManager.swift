@@ -66,6 +66,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     }
     
     func handleDisconnection() {
+        self.stopPeripheralService()
        
         self.drawCharacteristic = nil
         self.discoveredPeripheral = nil
@@ -73,6 +74,9 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         self.delegate.connectionStateChanged(self.isConnected())
         
         if (self.peripheralManager.state == CBPeripheralManagerState.PoweredOn) {
+           
+            self.startPeripheralService()
+            
             self.startScanningForPeripherals()
         }
         
@@ -113,7 +117,15 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         
     }
     
-   
+    func stopPeripheralService() {
+        
+        peripheralManager.stopAdvertising()
+        
+        peripheralManager.removeAllServices()
+        
+        self.characteristic = nil
+    }
+    
     func peripheralManager(peripheral: CBPeripheralManager, didReceiveWriteRequests requests: [CBATTRequest]) {
         print("received write request: \(requests)")
       
