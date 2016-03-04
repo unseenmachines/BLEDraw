@@ -72,7 +72,7 @@ override func prefersStatusBarHidden() -> Bool {
         
         let point = touch.normalizedLocationInView(touch.view)
         
-        self.drawView.startStroke(point)
+        self.drawView.startStroke(point, lineIndex: 0)
       
         self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.touchStarted, point: point))
         
@@ -87,7 +87,7 @@ override func prefersStatusBarHidden() -> Bool {
         
         let point = touch.normalizedLocationInView(touch.view)
         
-        self.drawView.addPointToStroke(point, color: UIColor.blackColor())
+        self.drawView.addPointToStroke(point, color: UIColor.blackColor(), lineIndex: 0)
         
         self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.touchMoved, point: point))
         
@@ -109,11 +109,11 @@ override func prefersStatusBarHidden() -> Bool {
            
             if message.messageType == MessageType.touchMoved {
                 
-                self.drawView.addPointToStroke(message.point(), color: UIColor.redColor())
+                self.drawView.addPointToStroke(message.point(), color: UIColor.redColor(), lineIndex: 1)
                 
             } else if message.messageType == MessageType.touchStarted {
                 
-                self.drawView.startStroke(message.point())
+                self.drawView.startStroke(message.point(), lineIndex: 1)
                 
             } else if message.messageType == MessageType.touchEnded {
                 
