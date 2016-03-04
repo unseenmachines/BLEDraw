@@ -8,6 +8,24 @@
 
 import UIKit
 
+
+extension UITouch {
+   
+   
+    func normalizedLocationInView(view : UIView?) -> CGPoint {
+       
+        guard view != nil else  { return CGPointMake(0, 0) }
+      
+        let point = self.locationInView(view)
+       
+        let normalizedX = point.x / view!.frame.size.width
+        let normalizedY = point.y / view!.frame.size.height
+        
+        return CGPointMake(normalizedX, normalizedY)
+    }
+    
+}
+
 class ViewController: UIViewController, BLEManagerDelegate {
 
     @IBOutlet weak var drawView: DrawView!
