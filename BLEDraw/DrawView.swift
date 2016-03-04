@@ -31,6 +31,16 @@ class DrawView : UIView {
    
     var mainImage : UIImageView!
     var incrementalImage : UIImageView!
+    
+    
+    func denormalize(normalizedPoint : CGPoint) -> CGPoint {
+       
+        let denormalizedX = normalizedPoint.x * self.frame.width
+        let denormalizedY = normalizedPoint.y * self.frame.height
+        
+        return CGPointMake(denormalizedX, denormalizedY)
+        
+    }
    
     func startStroke(point: CGPoint) {
       
