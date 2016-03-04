@@ -86,7 +86,7 @@ class DrawView : UIView {
         CGContextMoveToPoint(context, previousPoint.x, previousPoint.y);
         CGContextAddLineToPoint(context, point.x, point.y);
         CGContextSetLineCap(context, CGLineCap.Round);
-        CGContextSetLineWidth(context, 4.0 );
+        CGContextSetLineWidth(context, 2.0 );
         
       
         var components = color.rgb()
