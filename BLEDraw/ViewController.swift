@@ -52,8 +52,12 @@ class ViewController: UIViewController, BLEManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+   
+//# MARK: ViewController callbacks
+
+override func viewDidLayoutSubviews() {
+    self.drawView.setupImageViews()
+}
     
    
 //# MARK: Touch related methods
@@ -93,11 +97,6 @@ class ViewController: UIViewController, BLEManagerDelegate {
         self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.touchEnded))
     }
 
-//# MARK: ViewController callbacks
-    
-    override func viewDidLayoutSubviews() {
-        self.drawView.setupImageViews()
-    }
     
 //# MARK: BLEManager delegate methods
     
