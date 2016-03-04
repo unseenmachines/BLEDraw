@@ -58,7 +58,10 @@ class ViewController: UIViewController, BLEManagerDelegate {
 override func viewDidLayoutSubviews() {
     self.drawView.setupImageViews()
 }
-    
+  
+override func prefersStatusBarHidden() -> Bool {
+    return false
+}
    
 //# MARK: Touch related methods
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
