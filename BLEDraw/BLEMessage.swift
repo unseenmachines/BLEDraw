@@ -69,6 +69,14 @@ struct BLEMessage {
         
     }
     
+    init(type: MessageType) {
+       
+        messageType = type
+        
+        rawData = NSData()
+        
+    }
+    
     init(data: NSData) {
      
         messageType = messageTypeFromByte(data.firstByte() ?? 0x00)
