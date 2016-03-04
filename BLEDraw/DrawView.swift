@@ -52,14 +52,24 @@ class DrawView : UIView {
         
     }
     
-    override func awakeFromNib() {
-        print("Awake from nib!")
+    func setupImageViews() {
+      
+        if (mainImage != nil && incrementalImage != nil) {
+            mainImage.frame = self.bounds
+            incrementalImage.frame = self.bounds
+            return
+        }
+        
+        
         mainImage = UIImageView(frame: self.bounds)
-    incrementalImage = UIImageView(frame: self.bounds)
+        incrementalImage = UIImageView(frame: self.bounds)
+        print("imagesizes: \(self.bounds)")
         self.addSubview(mainImage)
         self.addSubview(incrementalImage)
+        
+        
     }
-    
+
     
     func addPointToStroke(normalizedPoint: CGPoint, color: UIColor) {
        
