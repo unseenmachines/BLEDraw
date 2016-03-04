@@ -58,9 +58,7 @@ class ViewController: UIViewController, BLEManagerDelegate {
         guard let touch = touches.first else { return }
        
         guard touch.view! == self.drawView else { return }
-        
-        //print("touches moved: \(touch.locationInView(touch.view))")
-       
+      
         let point = touch.locationInView(touch.view)
         
         self.drawView.addPointToStroke(point, color: UIColor.blackColor())
