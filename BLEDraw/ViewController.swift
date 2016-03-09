@@ -67,8 +67,18 @@ class ViewController: UIViewController, BLEManagerDelegate {
         bluetoothManager.delegate = self
         
         self.updateConnectionLabel()
+        self.connectSignals()
         
     }
+    
+    func connectSignals() {
+      
+        
+        touchEventSignal.observeNext({ next in
+            self.drawView.handleTouchEvent(next)
+        })
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
