@@ -45,6 +45,33 @@ class DrawView : UIView {
         return CGPointMake(denormalizedX, denormalizedY)
         
     }
+    
+    func handleTouchEvent(event: TouchEvent) {
+     
+        dispatch_async(dispatch_get_main_queue(), {
+        
+            switch event.type {
+                
+            case .touchStarted:
+                self.startStroke(event.point, source: event.source)
+                break
+                
+            case .touchMoved:
+                self.addPointToStroke(event.point, color: self.lineColours[event.source]!, source: event.source)
+                break
+                
+            case .touchEnded:
+                self.endStroke()
+                break
+                
+            default:
+                break
+                
+            }
+        
+        })
+        
+    }
    
     func startStroke(normalizedPoint: CGPoint, source : EventSource) {
       
