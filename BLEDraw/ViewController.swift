@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import ReactiveCocoa
+import enum Result.NoError
 
+typealias NoError = Result.NoError
 
 enum EventSource {
     case Remote
