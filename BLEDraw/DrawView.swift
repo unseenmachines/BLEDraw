@@ -30,6 +30,8 @@ class DrawView : UIView {
  
     //This holds the previous points
     var previousPoints : Dictionary<EventSource,CGPoint> = [EventSource.Local:CGPointZero, EventSource.Remote:CGPointZero]
+    
+    let lineColours : Dictionary<EventSource, UIColor> = [.Local:UIColor.redColor(), .Remote:UIColor.blackColor()]
    
     var mainImage : UIImageView!
     var incrementalImage : UIImageView!
