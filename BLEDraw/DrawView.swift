@@ -46,9 +46,9 @@ class DrawView : UIView {
         
     }
    
-    func startStroke(normalizedPoint: CGPoint, lineIndex : Int) {
+    func startStroke(normalizedPoint: CGPoint, source : EventSource) {
       
-        previousPoints[lineIndex] = self.denormalize(normalizedPoint)
+        previousPoints[source] = self.denormalize(normalizedPoint)
         
     }
     
@@ -69,12 +69,11 @@ class DrawView : UIView {
         
         
     }
-
     
-    func addPointToStroke(normalizedPoint: CGPoint, color: UIColor, lineIndex : Int) {
+    func addPointToStroke(normalizedPoint: CGPoint, color: UIColor, source : EventSource) {
        
-        if (previousPoints[lineIndex] == nil) {
-            previousPoints[lineIndex] = self.denormalize(normalizedPoint)
+        if (previousPoints[source] == nil) {
+            previousPoints[source] = self.denormalize(normalizedPoint)
         }
         
         let point = self.denormalize(normalizedPoint)
@@ -83,7 +82,7 @@ class DrawView : UIView {
         self.incrementalImage.image?.drawInRect(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextMoveToPoint(context, previousPoints[lineIndex].x, previousPoints[lineIndex].y);
+        CGContextMoveToPoint(context, previousPoints[source]!.x, previousPoints[source]!.y);
         CGContextAddLineToPoint(context, point.x, point.y);
         CGContextSetLineCap(context, CGLineCap.Round);
         CGContextSetLineWidth(context, 2.0 );
@@ -104,7 +103,7 @@ class DrawView : UIView {
         
         UIGraphicsEndImageContext();
        
-        previousPoints[lineIndex] = point
+        previousPoints[source] = point
         
     }
     
