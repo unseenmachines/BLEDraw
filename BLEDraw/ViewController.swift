@@ -66,7 +66,6 @@ class ViewController: UIViewController, BLEManagerDelegate {
         
         bluetoothManager.delegate = self
         
-        self.updateConnectionLabel()
         self.connectSignals()
         
     }
@@ -74,6 +73,10 @@ class ViewController: UIViewController, BLEManagerDelegate {
     func connectSignals() {
       
         
+        connectionStatusSignal.observeNext({ isConnected in
+            self.updateConnectionLabel(isConnected)
+        })
+       
         touchEventSignal.observeNext({ next in
             self.drawView.handleTouchEvent(next)
         })
@@ -148,14 +151,10 @@ override func prefersStatusBarHidden() -> Bool {
         connectionStatusObserver.sendNext(connected)
     }
     
-    func updateConnectionLabel() {
+    func updateConnectionLabel(isConnected: Bool) {
        
         dispatch_async(dispatch_get_main_queue(), {
-            if self.bluetoothManager.isConnected() {
-                self.connectedLabel.hidden = false
-            } else {
-                self.connectedLabel.hidden = true
-            }
+            self.connectedLabel.hidden = !isConnected
         })
     }
 
