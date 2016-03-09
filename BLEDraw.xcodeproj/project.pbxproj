@@ -16,6 +16,7 @@
 		8B93A83C1C7FB34F000A0AA9 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93A83B1C7FB34F000A0AA9 /* BLEManager.swift */; };
 		8BB23C441C8219C900BDFFE6 /* BLEMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB23C431C8219C900BDFFE6 /* BLEMessage.swift */; };
 		8BED9E711C80C40700B3D60D /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED9E701C80C40700B3D60D /* DrawView.swift */; };
+		E78C4AC5705DA0ED8AF5C0AF /* Pods_BLEDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4E618176270240BCDF5D1F /* Pods_BLEDraw.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2FF6246C751F4768D81E5AD8 /* Pods-BLEDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEDraw.release.xcconfig"; path = "Pods/Target Support Files/Pods-BLEDraw/Pods-BLEDraw.release.xcconfig"; sourceTree = "<group>"; };
+		8B7547D11C90955200608F75 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = "Pods/../build/Debug-iphoneos/ReactiveCocoa.framework"; sourceTree = "<group>"; };
+		8B7547D31C90955700608F75 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "Pods/../build/Debug-iphoneos/Result.framework"; sourceTree = "<group>"; };
 		8B93A8181C7FA3C4000A0AA9 /* BLEDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B93A81B1C7FA3C4000A0AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B93A81D1C7FA3C4000A0AA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +46,8 @@
 		8B93A83B1C7FB34F000A0AA9 /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		8BB23C431C8219C900BDFFE6 /* BLEMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEMessage.swift; sourceTree = "<group>"; };
 		8BED9E701C80C40700B3D60D /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		8F4E618176270240BCDF5D1F /* Pods_BLEDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLEDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBB20F85A82004A8CEE1C025 /* Pods-BLEDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEDraw.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLEDraw/Pods-BLEDraw.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78C4AC5705DA0ED8AF5C0AF /* Pods_BLEDraw.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +69,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18FA3DA96AFAEE85081FFB15 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BBB20F85A82004A8CEE1C025 /* Pods-BLEDraw.debug.xcconfig */,
+				2FF6246C751F4768D81E5AD8 /* Pods-BLEDraw.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A966B856521B12DC816FB31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B7547D31C90955700608F75 /* Result.framework */,
+				8B7547D11C90955200608F75 /* ReactiveCocoa.framework */,
+				8F4E618176270240BCDF5D1F /* Pods_BLEDraw.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8B93A80F1C7FA3C4000A0AA9 = {
 			isa = PBXGroup;
 			children = (
 				8B93A81A1C7FA3C4000A0AA9 /* BLEDraw */,
 				8B93A82F1C7FA3C5000A0AA9 /* BLEDrawTests */,
 				8B93A8191C7FA3C4000A0AA9 /* Products */,
+				18FA3DA96AFAEE85081FFB15 /* Pods */,
+				4A966B856521B12DC816FB31 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,9 +140,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B93A8351C7FA3C5000A0AA9 /* Build configuration list for PBXNativeTarget "BLEDraw" */;
 			buildPhases = (
+				12DCAE481D28A1E8781F835D /* Check Pods Manifest.lock */,
 				8B93A8141C7FA3C4000A0AA9 /* Sources */,
 				8B93A8151C7FA3C4000A0AA9 /* Frameworks */,
 				8B93A8161C7FA3C4000A0AA9 /* Resources */,
+				F0BDF6651DFF73AFB7D4C90F /* Embed Pods Frameworks */,
+				C6190FE14C158EB42DA46819 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,6 +232,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12DCAE481D28A1E8781F835D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C6190FE14C158EB42DA46819 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLEDraw/Pods-BLEDraw-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0BDF6651DFF73AFB7D4C90F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLEDraw/Pods-BLEDraw-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B93A8141C7FA3C4000A0AA9 /* Sources */ = {
@@ -338,9 +417,14 @@
 		};
 		8B93A8361C7FA3C5000A0AA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBB20F85A82004A8CEE1C025 /* Pods-BLEDraw.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = BLEDraw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliotsinyor.BLEDraw;
@@ -350,9 +434,14 @@
 		};
 		8B93A8371C7FA3C5000A0AA9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FF6246C751F4768D81E5AD8 /* Pods-BLEDraw.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = BLEDraw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliotsinyor.BLEDraw;
