@@ -16,7 +16,15 @@ enum EventSource {
     case Remote
     case Local
 }
+
+struct TouchEvent {
    
+    let point : CGPoint
+    let type : MessageType
+    let source : EventSource
+    
+}
+
 extension UITouch {
    
     func normalizedLocationInView(view : UIView?) -> CGPoint {
