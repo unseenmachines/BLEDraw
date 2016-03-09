@@ -9,8 +9,12 @@
 import UIKit
 
 
-extension UITouch {
+enum EventSource {
+    case Remote
+    case Local
+}
    
+extension UITouch {
    
     func normalizedLocationInView(view : UIView?) -> CGPoint {
        
