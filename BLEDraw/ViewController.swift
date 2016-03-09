@@ -139,6 +139,8 @@ override func prefersStatusBarHidden() -> Bool {
     
     func didReceiveMessage(message: BLEMessage) {
        
+        touchEventObserver.sendNext(TouchEvent(point: message.point(), type: message.messageType, source: .Remote))
+        
     }
     
     func connectionStateChanged(connected: Bool) {
