@@ -53,6 +53,13 @@ class ViewController: UIViewController, BLEManagerDelegate {
     }
     
     let bluetoothManager = BLEManager()
+  
+    
+    
+    //For some reason self.rac_signalForSelector doesn't seem to work, so make the signal like this
+    let (touchEventSignal, touchEventObserver) = Signal<TouchEvent, NoError>.pipe()
+   
+    let (connectionStatusSignal, connectionStatusObserver) = Signal<Bool, NoError>.pipe()
     
     override func viewDidLoad() {
         super.viewDidLoad()
