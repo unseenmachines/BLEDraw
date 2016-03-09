@@ -93,6 +93,7 @@ override func prefersStatusBarHidden() -> Bool {
         
         let point = touch.normalizedLocationInView(touch.view)
       
+        touchEventObserver.sendNext(TouchEvent(point: point, type: MessageType.touchStarted, source: .Local))
         
     }
     
@@ -104,10 +105,13 @@ override func prefersStatusBarHidden() -> Bool {
         
         let point = touch.normalizedLocationInView(touch.view)
         
+        touchEventObserver.sendNext(TouchEvent(point: point, type: MessageType.touchMoved, source: .Local))
         
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+       
+        touchEventObserver.sendNext(TouchEvent(point: CGPointZero, type: MessageType.touchEnded, source: .Local))
         
     }
 
