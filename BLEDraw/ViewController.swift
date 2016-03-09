@@ -71,14 +71,10 @@ override func prefersStatusBarHidden() -> Bool {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         guard let touch = touches.first else { return }
-        
         guard touch.view! == self.drawView else { return }
         
         let point = touch.normalizedLocationInView(touch.view)
-        
-        self.drawView.startStroke(point, lineIndex: 0)
       
-        self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.touchStarted, point: point))
         
     }
     
@@ -86,22 +82,15 @@ override func prefersStatusBarHidden() -> Bool {
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
        
         guard let touch = touches.first else { return }
-       
         guard touch.view! == self.drawView else { return }
         
         let point = touch.normalizedLocationInView(touch.view)
         
-        self.drawView.addPointToStroke(point, color: UIColor.blackColor(), lineIndex: 0)
-        
-        self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.touchMoved, point: point))
         
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        self.drawView.endStroke()
-        
-        self.bluetoothManager.sendToRemote(BLEMessage(type: MessageType.touchEnded))
     }
 
     
@@ -109,26 +98,6 @@ override func prefersStatusBarHidden() -> Bool {
     
     func didReceiveMessage(message: BLEMessage) {
        
-        dispatch_async(dispatch_get_main_queue(), {
-           
-            if message.messageType == MessageType.touchMoved {
-                
-                self.drawView.addPointToStroke(message.point(), color: UIColor.redColor(), lineIndex: 1)
-                
-            } else if message.messageType == MessageType.touchStarted {
-                
-                self.drawView.startStroke(message.point(), lineIndex: 1)
-                
-            } else if message.messageType == MessageType.touchEnded {
-                
-                self.drawView.endStroke()
-                
-            }
-            
-        })
-        
-        
-        
     }
     
     func connectionStateChanged(connected: Bool) {
