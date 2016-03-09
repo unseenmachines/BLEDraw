@@ -89,6 +89,18 @@ class ViewController: UIViewController, BLEManagerDelegate {
                 
             })
         
+        /*
+        touchEventSignal
+            .map({ next -> TouchEvent in
+                let xOffset : CGFloat = 0.03
+                let yOffset : CGFloat = 0.03
+                let newPoint = CGPointMake(next.point.x + xOffset, next.point.y + yOffset)
+                return TouchEvent(point: newPoint, type: next.type, source: next.source)
+            })
+            .observeNext({ next in
+                self.drawView.handleTouchEvent(next)
+            })
+        */
     }
 
 
