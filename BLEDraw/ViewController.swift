@@ -144,8 +144,8 @@ override func prefersStatusBarHidden() -> Bool {
     }
     
     func connectionStateChanged(connected: Bool) {
-      
-            self.updateConnectionLabel()
+     
+        connectionStatusObserver.sendNext(connected)
     }
     
     func updateConnectionLabel() {
