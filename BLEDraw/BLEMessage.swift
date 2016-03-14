@@ -13,7 +13,6 @@ enum MessageType : UInt8 {
     case unknown = 0x00
     case touchStarted = 0x01
     case touchMoved = 0x02
-    case touchEnded = 0x03
 }
 
 func messageTypeFromByte(byte: UInt8) -> MessageType {
@@ -24,8 +23,6 @@ func messageTypeFromByte(byte: UInt8) -> MessageType {
         return MessageType.touchStarted
     case 0x02:
         return MessageType.touchMoved
-    case 0x03:
-        return MessageType.touchEnded
     default:
         return MessageType.unknown
     }

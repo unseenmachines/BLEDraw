@@ -58,9 +58,6 @@ class DrawView : UIView {
                 self.addPointToStroke(event.point, color: self.lineColours[event.source]!, source: event.source)
                 break
                 
-            case .touchEnded:
-                break
-                
             default:
                 break
                 
