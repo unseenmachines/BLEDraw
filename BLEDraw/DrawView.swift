@@ -11,7 +11,7 @@ import UIKit
 
 extension UIColor {
     
-    func rgb() -> (red:CGFloat, green:CGFloat, blue:CGFloat, alpha:CGFloat)? {
+    func rgb() -> (red:CGFloat, green:CGFloat, blue:CGFloat, alpha:CGFloat) {
         var fRed : CGFloat = 0
         var fGreen : CGFloat = 0
         var fBlue : CGFloat = 0
@@ -20,13 +20,12 @@ extension UIColor {
             return (red:fRed, green:fGreen, blue:fBlue, alpha:fAlpha)
         } else {
             // Could not extract RGBA components:
-            return nil
+            return (red: 0, green: 0, blue: 0, alpha: 0)
         }
     }
 }
 
 class DrawView : UIView {
-  
  
     //This holds the previous points
     var previousPoints : Dictionary<EventSource,CGPoint> = [EventSource.Local:CGPointZero, EventSource.Remote:CGPointZero]
@@ -99,16 +98,9 @@ class DrawView : UIView {
         CGContextAddLineToPoint(context, point.x, point.y);
         CGContextSetLineCap(context, CGLineCap.Round);
         CGContextSetLineWidth(context, 2.0 );
-        
       
-        var components = color.rgb()
-        
-        if components == nil {
-            components = (1.0, 1.0, 1.0, 1.0)
-            
-        }
-        
-        CGContextSetRGBStrokeColor(context, components!.0, components!.1, components!.2, 1.0);
+        let components = color.rgb()
+        CGContextSetRGBStrokeColor(context, components.0, components.1, components.2, 1.0);
         CGContextSetBlendMode(context, CGBlendMode.Normal);
         CGContextStrokePath(context);
         
