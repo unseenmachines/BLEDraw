@@ -88,11 +88,7 @@ class DrawView : UIView {
     }
     
     func addPointToStroke(normalizedPoint: CGPoint, color: UIColor, source : EventSource) {
-       
-        if (previousPoints[source] == nil) {
-            previousPoints[source] = self.denormalize(normalizedPoint)
-        }
-        
+
         let point = self.denormalize(normalizedPoint)
         
         UIGraphicsBeginImageContext(self.frame.size);
