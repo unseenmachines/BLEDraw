@@ -44,7 +44,7 @@
                                     <action selector="clearPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="cU5-Ud-TqQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrN-Py-Sb6">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrN-Py-Sb6">
                                 <rect key="frame" x="495" y="554" width="85" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="Zhi-cg-woA"/>
