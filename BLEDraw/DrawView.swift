@@ -59,7 +59,6 @@ class DrawView : UIView {
                 break
                 
             case .touchEnded:
-                self.endStroke()
                 break
                 
             default:
@@ -128,24 +127,10 @@ class DrawView : UIView {
         
     }
     
-    func endStroke() {
-       
-        UIGraphicsBeginImageContext(self.mainImage.frame.size);
-        
-        self.mainImage.image?.drawInRect(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height), blendMode: CGBlendMode.Normal, alpha:1.0)
-        self.incrementalImage.image?.drawInRect(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height), blendMode: CGBlendMode.Normal, alpha:1.0)
-        
-        self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
-        self.incrementalImage.image = nil
-        
-        UIGraphicsEndImageContext();
-        
-    }
     
     func clear() {
         self.imageView.image = nil
     }
   
-    
     
 }
