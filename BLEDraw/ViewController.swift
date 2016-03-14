@@ -143,12 +143,6 @@ override func prefersStatusBarHidden() -> Bool {
         
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       
-        touchEventObserver.sendNext(TouchEvent(point: CGPointZero, type: MessageType.touchEnded, source: .Local))
-        
-    }
-
     
 //# MARK: BLEManager delegate methods
     
