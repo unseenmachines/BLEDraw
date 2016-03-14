@@ -33,9 +33,7 @@ class DrawView : UIView {
     
     let lineColours : Dictionary<EventSource, UIColor> = [.Local:UIColor.redColor(), .Remote:UIColor.blackColor()]
    
-    var mainImage : UIImageView!
-    var incrementalImage : UIImageView!
-    
+    var imageView : UIImageView!
     
     func denormalize(normalizedPoint : CGPoint) -> CGPoint {
        
@@ -82,18 +80,14 @@ class DrawView : UIView {
     func setupImageViews() {
      
         //If they have already been created, just adjust them
-        if (mainImage != nil && incrementalImage != nil) {
-            mainImage.frame = self.bounds
-            incrementalImage.frame = self.bounds
+        if (imageView != nil) {
+            imageView.frame = self.bounds
             return
         }
         
-        mainImage = UIImageView(frame: self.bounds)
-        incrementalImage = UIImageView(frame: self.bounds)
+        imageView = UIImageView(frame: self.bounds)
         
-        self.addSubview(mainImage)
-        self.addSubview(incrementalImage)
-        
+        self.addSubview(imageView)
         
     }
     
@@ -106,7 +100,7 @@ class DrawView : UIView {
         let point = self.denormalize(normalizedPoint)
         
         UIGraphicsBeginImageContext(self.frame.size);
-        self.incrementalImage.image?.drawInRect(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
+        self.imageView.image?.drawInRect(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
         
         let context = UIGraphicsGetCurrentContext()
         CGContextMoveToPoint(context, previousPoints[source]!.x, previousPoints[source]!.y);
@@ -126,7 +120,7 @@ class DrawView : UIView {
         CGContextSetBlendMode(context, CGBlendMode.Normal);
         CGContextStrokePath(context);
         
-        self.incrementalImage.image = UIGraphicsGetImageFromCurrentImageContext();
+        self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
         
         UIGraphicsEndImageContext();
        
@@ -149,7 +143,7 @@ class DrawView : UIView {
     }
     
     func clear() {
-        self.mainImage.image = nil
+        self.imageView.image = nil
     }
   
     
