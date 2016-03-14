@@ -59,29 +59,6 @@ class BLEDrawTests: XCTestCase {
         
     }
     
-    func testEndMessageFromData() {
-       
-        let bytes : [UInt8] = [0x03, 0x00]
-        
-        let data : NSData = NSData(bytes: bytes, length: bytes.count)
-        
-        let message = BLEMessage(data: data)
-       
-        XCTAssert(message.rawData.isEqualToData(data))
-        
-    }
-    
-    func testEndMessageFromType() {
-      
-        let message = BLEMessage(type: MessageType.touchEnded)
-       
-        let bytes : [UInt8] = [0x03]
-        
-        let data : NSData = NSData(bytes: bytes, length: bytes.count)
-       
-        XCTAssert(message.rawData.isEqualToData(data), "Data from message generated with type is unexpected")
-        
-    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
