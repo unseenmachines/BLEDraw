@@ -126,7 +126,6 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     }
     
     func peripheralManager(peripheral: CBPeripheralManager, didReceiveWriteRequests requests: [CBATTRequest]) {
-        print("received write request: \(requests)")
       
         for request in requests {
             
