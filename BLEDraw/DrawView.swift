@@ -20,7 +20,20 @@ class DrawView : UIView {
    
     var imageView : UIImageView!
     
-
+    private func setupImageViews() {
+        
+        //If the view already exists, just adjust it to the possibly new bound (eg during rotation)
+        if (imageView != nil) {
+            imageView.frame = self.bounds
+            return
+        }
+        
+        imageView = UIImageView(frame: self.bounds)
+        
+        self.addSubview(imageView)
+        
+    }
+    
     
     //All drawing should happen through this method
     func handleTouchEvent(event: TouchEvent) {
@@ -45,21 +58,10 @@ class DrawView : UIView {
         })
         
     }
-   
 
-    
-    func setupImageViews() {
-     
-        //If they have already been created, just adjust them
-        if (imageView != nil) {
-            imageView.frame = self.bounds
-            return
-        }
-        
-        imageView = UIImageView(frame: self.bounds)
-        
-        self.addSubview(imageView)
-        
+    //Called by hosting VC
+    func handleDidLayoutSubviews() {
+        setupImageViews()
     }
     
     private func startStroke(normalizedPoint: CGPoint, source : EventSource) {

@@ -112,7 +112,7 @@ class ViewController: UIViewController, BLEManagerDelegate {
 //# MARK: ViewController callbacks
 
 override func viewDidLayoutSubviews() {
-    self.drawView.setupImageViews()
+    self.drawView.handleDidLayoutSubviews()
 }
   
 override func prefersStatusBarHidden() -> Bool {
