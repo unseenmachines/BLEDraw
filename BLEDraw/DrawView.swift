@@ -106,7 +106,7 @@ class DrawView : UIView {
     }
   
     //Helper method to denormalize point to local frame size
-    func denormalize(normalizedPoint : CGPoint) -> CGPoint {
+    private func denormalize(normalizedPoint : CGPoint) -> CGPoint {
         
         let denormalizedX = normalizedPoint.x * self.frame.width
         let denormalizedY = normalizedPoint.y * self.frame.height
