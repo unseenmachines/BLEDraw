@@ -14,7 +14,7 @@
 		8B93A8261C7FA3C4000A0AA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B93A8241C7FA3C4000A0AA9 /* LaunchScreen.storyboard */; };
 		8B93A8311C7FA3C5000A0AA9 /* BLEDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93A8301C7FA3C5000A0AA9 /* BLEDrawTests.swift */; };
 		8B93A83C1C7FB34F000A0AA9 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93A83B1C7FB34F000A0AA9 /* BLEManager.swift */; };
-		8BB23C441C8219C900BDFFE6 /* BLEMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB23C431C8219C900BDFFE6 /* BLEMessage.swift */; };
+		8BB23C441C8219C900BDFFE6 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB23C431C8219C900BDFFE6 /* Messages.swift */; };
 		8BED9E711C80C40700B3D60D /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED9E701C80C40700B3D60D /* DrawView.swift */; };
 		E78C4AC5705DA0ED8AF5C0AF /* Pods_BLEDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4E618176270240BCDF5D1F /* Pods_BLEDraw.framework */; };
 /* End PBXBuildFile section */
@@ -44,7 +44,7 @@
 		8B93A8301C7FA3C5000A0AA9 /* BLEDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDrawTests.swift; sourceTree = "<group>"; };
 		8B93A8321C7FA3C5000A0AA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B93A83B1C7FB34F000A0AA9 /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
-		8BB23C431C8219C900BDFFE6 /* BLEMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEMessage.swift; sourceTree = "<group>"; };
+		8BB23C431C8219C900BDFFE6 /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		8BED9E701C80C40700B3D60D /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		8F4E618176270240BCDF5D1F /* Pods_BLEDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLEDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB20F85A82004A8CEE1C025 /* Pods-BLEDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEDraw.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLEDraw/Pods-BLEDraw.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			children = (
 				8B93A81B1C7FA3C4000A0AA9 /* AppDelegate.swift */,
 				8B93A81D1C7FA3C4000A0AA9 /* ViewController.swift */,
-				8BB23C431C8219C900BDFFE6 /* BLEMessage.swift */,
+				8BB23C431C8219C900BDFFE6 /* Messages.swift */,
 				8BED9E701C80C40700B3D60D /* DrawView.swift */,
 				8B93A81F1C7FA3C4000A0AA9 /* Main.storyboard */,
 				8B93A8221C7FA3C4000A0AA9 /* Assets.xcassets */,
@@ -289,7 +289,7 @@
 				8B93A81E1C7FA3C4000A0AA9 /* ViewController.swift in Sources */,
 				8B93A83C1C7FB34F000A0AA9 /* BLEManager.swift in Sources */,
 				8BED9E711C80C40700B3D60D /* DrawView.swift in Sources */,
-				8BB23C441C8219C900BDFFE6 /* BLEMessage.swift in Sources */,
+				8BB23C441C8219C900BDFFE6 /* Messages.swift in Sources */,
 				8B93A81C1C7FA3C4000A0AA9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
