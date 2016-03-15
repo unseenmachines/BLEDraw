@@ -13,6 +13,23 @@ enum MessageType : UInt8 {
     case unknown = 0x00
     case touchStarted = 0x01
     case touchMoved = 0x02
+    case clearPressed = 0x03
+}
+
+func messageTypeFromByte(byte: UInt8) -> MessageType {
+    
+    switch byte {
+        
+    case 0x01:
+        return MessageType.touchStarted
+    case 0x02:
+        return MessageType.touchMoved
+    case 0x03:
+        return MessageType.clearPressed
+    default:
+        return MessageType.unknown
+    }
+    
 }
 
 enum EventSource {
@@ -31,19 +48,7 @@ struct TouchEvent {
 
 //# MARK: BLE-related
 
-func messageTypeFromByte(byte: UInt8) -> MessageType {
-   
-    switch byte {
-        
-    case 0x01:
-        return MessageType.touchStarted
-    case 0x02:
-        return MessageType.touchMoved
-    default:
-        return MessageType.unknown
-    }
-    
-}
+
 
 struct BLEMessage {
     
