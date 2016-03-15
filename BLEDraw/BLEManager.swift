@@ -99,7 +99,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     
     func startPeripheralService() {
         
-        let mutableChar = CBMutableCharacteristic(type: charactertisticUUID, properties: [CBCharacteristicProperties.Write, CBCharacteristicProperties.WriteWithoutResponse, CBCharacteristicProperties.Indicate, CBCharacteristicProperties.Read], value: nil, permissions: CBAttributePermissions.Writeable)
+        let mutableChar = CBMutableCharacteristic(type: charactertisticUUID, properties: [CBCharacteristicProperties.WriteWithoutResponse, CBCharacteristicProperties.Indicate, CBCharacteristicProperties.Read], value: nil, permissions: CBAttributePermissions.Writeable)
         
         self.characteristic = mutableChar
         
@@ -129,7 +129,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         print("received write request: \(requests)")
       
         for request in requests {
-            peripheral.respondToRequest(request, withResult: CBATTError.Success)
+            
             if (request.characteristic.UUID == charactertisticUUID) {
                
                 guard delegate != nil else {return }
