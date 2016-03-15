@@ -19,6 +19,8 @@ class ViewController: UIViewController, BLEManagerDelegate {
     @IBOutlet weak var connectedLabel: UILabel!
     
     @IBAction func clearPressed() {
+     
+        touchEventObserver.sendNext(TouchEvent(point: CGPointZero, type: MessageType.clearPressed, source: .Local))
         
     }
     
