@@ -91,27 +91,20 @@ override func prefersStatusBarHidden() -> Bool {
    
 //# MARK: Touch related methods
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        guard let touch = touches.first else { return }
-        guard touch.view! == self.drawView else { return }
-        
-        let point = touch.normalizedLocationInView(touch.view)
+     
+        guard let touchEvent = self.touchEventFromTouches(touches, type: MessageType.touchStarted) else { return }
       
-        touchEventObserver.sendNext(TouchEvent(point: point, type: MessageType.touchStarted, source: .Local))
+        touchEventObserver.sendNext(touchEvent)
         
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
        
-        guard let touch = touches.first else { return }
-        guard touch.view! == self.drawView else { return }
+        guard let touchEvent = self.touchEventFromTouches(touches, type: MessageType.touchMoved) else { return }
         
-        let point = touch.normalizedLocationInView(touch.view)
-        
-        touchEventObserver.sendNext(TouchEvent(point: point, type: MessageType.touchMoved, source: .Local))
+        touchEventObserver.sendNext(touchEvent)
         
     }
-    
     
 //# MARK: BLEManager delegate methods
     
@@ -132,11 +125,23 @@ override func prefersStatusBarHidden() -> Bool {
             self.connectedLabel.hidden = !isConnected
         })
     }
+    
+
+//# MARK Helper methods
+    
+    func touchEventFromTouches(touches: Set<UITouch>, type: MessageType) -> TouchEvent! {
+        
+        guard let touch = touches.first else { return nil }
+        guard touch.view! == self.drawView else { return nil }
+        
+        let point = touch.normalizedLocationInView(touch.view)
+        
+        return TouchEvent(point: point, type: type, source:EventSource.Local)
+        
+    }
 
 
 }
-
-//# MARK Helper methods
 
 extension UITouch {
     
