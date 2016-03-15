@@ -113,8 +113,8 @@
 			children = (
 				8B93A81B1C7FA3C4000A0AA9 /* AppDelegate.swift */,
 				8B93A81D1C7FA3C4000A0AA9 /* ViewController.swift */,
-				8BB23C431C8219C900BDFFE6 /* Messages.swift */,
 				8BED9E701C80C40700B3D60D /* DrawView.swift */,
+				8BB23C431C8219C900BDFFE6 /* Messages.swift */,
 				8B93A81F1C7FA3C4000A0AA9 /* Main.storyboard */,
 				8B93A8221C7FA3C4000A0AA9 /* Assets.xcassets */,
 				8B93A8241C7FA3C4000A0AA9 /* LaunchScreen.storyboard */,

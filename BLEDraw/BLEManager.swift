@@ -53,7 +53,9 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     }
     
 //# MARK: - Basic Methods
-    
+   
+    //Not strictly "honest" as to the actual connected state, but this is all we care about
+    //If we're connected but there isn't the expected characteristic to write to, we don't want to report being connected
     func isConnected() -> Bool {
        
         if self.drawCharacteristic != nil {
@@ -71,7 +73,8 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         self.discoveredPeripheral = nil
         
         self.delegate?.connectionStateChanged(self.isConnected())
-        
+   
+        //In the case of a remote disconnect, we want to restart the peripheral service and make sure we are still scanning
         if (self.peripheralManager.state == CBPeripheralManagerState.PoweredOn) {
            
             self.startPeripheralService()
@@ -80,6 +83,25 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         }
         
     }
+   
+    //This is the method used to send messages to the remote device
+    func sendToRemote(message : BLEMessage) {
+        
+        guard drawCharacteristic != nil else {
+            print("No draw characteristic exists remotely")
+            return
+        }
+        
+        guard discoveredPeripheral != nil else {
+            print("No peripheral exists")
+            return
+        }
+        
+        discoveredPeripheral.writeValue(message.rawData, forCharacteristic: drawCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+        
+    }
+    
+    
    
 //# MARK: - Peripheral Manager methods
     
@@ -157,7 +179,6 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     
     func startScanningForPeripherals() {
         print("Scanning for peripherals")
-        //TODO: add dedicated serial queue for BT activity
         
         self.centralManager.stopScan()
         self.centralManager.scanForPeripheralsWithServices([serviceUUID], options: nil)
@@ -235,22 +256,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         self.handleDisconnection()
     }
     
-    func sendToRemote(message : BLEMessage) {
-       
-        guard drawCharacteristic != nil else {
-            print("No draw characteristic exists remotely")
-            return
-        }
-        
-        guard discoveredPeripheral != nil else {
-            print("No peripheral exists")
-            return
-        }
-      
-        
-        discoveredPeripheral.writeValue(message.rawData, forCharacteristic: drawCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
-        
-    }
+
     
     
 }

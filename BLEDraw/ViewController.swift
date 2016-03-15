@@ -25,8 +25,6 @@ class ViewController: UIViewController, BLEManagerDelegate {
     }
     
     let bluetoothManager = BLEManager()
-  
-    
     
     //For some reason self.rac_signalForSelector doesn't seem to work, so make the signal like this
     let (touchEventSignal, touchEventObserver) = Signal<TouchEvent, NoError>.pipe()
@@ -60,6 +58,7 @@ class ViewController: UIViewController, BLEManagerDelegate {
                 self.bluetoothManager.sendToRemote(BLEMessage(type: next.type, point: next.point))
                 
             })
+       
         
         /*
         touchEventSignal
@@ -74,7 +73,6 @@ class ViewController: UIViewController, BLEManagerDelegate {
             })
         */
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -102,7 +100,6 @@ override func prefersStatusBarHidden() -> Bool {
         touchEventObserver.sendNext(TouchEvent(point: point, type: MessageType.touchStarted, source: .Local))
         
     }
-    
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
        
