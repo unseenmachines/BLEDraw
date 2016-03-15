@@ -131,10 +131,8 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         for request in requests {
             
             if (request.characteristic.UUID == charactertisticUUID) {
-               
-                guard delegate != nil else {return }
                 
-                delegate.didReceiveMessage(BLEMessage(data: request.value!))
+                delegate?.didReceiveMessage(BLEMessage(data: request.value!))
                 
             }
         }
