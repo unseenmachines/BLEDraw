@@ -12,6 +12,11 @@ import enum Result.NoError
 
 typealias NoError = Result.NoError
 
+/*
+    The only VC in the project. Gets touchEvents via UIResponder methods and sends them to: 
+        - The local drawView (via touchEventSignal)
+        - The remote device (via touchEventSignal -> BLEManager)
+*/
 class ViewController: UIViewController, BLEManagerDelegate {
 
     @IBOutlet weak var drawView: DrawView!
@@ -42,15 +47,17 @@ class ViewController: UIViewController, BLEManagerDelegate {
     
     func connectSignals() {
       
-        
+       
         connectionStatusSignal.observeNext({ isConnected in
             self.updateConnectionLabel(isConnected)
         })
-       
+      
+        //This sends all (ie local and remote) touch events to the local drawView
         touchEventSignal.observeNext({ next in
             self.drawView.handleTouchEvent(next)
         })
         
+        //This sends only local touch events to the remote device
         touchEventSignal
             .filter({ next in next.source == EventSource.Local})
             .observeNext({ next in
@@ -89,7 +96,8 @@ override func prefersStatusBarHidden() -> Bool {
     return false
 }
    
-//# MARK: Touch related methods
+//# MARK: Touch related methods (UIResponder)
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
      
         guard let touchEvent = self.touchEventFromTouches(touches, type: MessageType.touchStarted) else { return }

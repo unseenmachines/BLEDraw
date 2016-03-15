@@ -10,7 +10,12 @@ import Foundation
 import UIKit
 
 
+/*
+    This class receives touch events that originate from either the ViewController's UIResponder methods (touchesBegan, etc.)
+    OR from the remote device via BLE. They are treated the same aside from the drawing colour. 
 
+    Local events are red, remote are black.
+*/
 class DrawView : UIView {
  
     //This holds the previous points

@@ -16,6 +16,16 @@ protocol BLEManagerDelegate {
     
 }
 
+
+/*
+    This handles setting up a local peripheral to receive touch events as well as a central to send touch events to the
+    remote peripheral.
+
+    Interface: 
+        - to send to remote peripheral, call sendToRemote
+        - to recieve, implement didReceiveMessage delegate method as specified in the BLEManagerDelegate protocol
+*/
+
 class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate {
 
     static let sharedInstance = BLEManager()
@@ -255,8 +265,5 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
         print("Central unsubscribed")
         self.handleDisconnection()
     }
-    
-
-    
     
 }
