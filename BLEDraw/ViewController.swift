@@ -12,26 +12,12 @@ import enum Result.NoError
 
 typealias NoError = Result.NoError
 
-enum EventSource {
-    case Remote
-    case Local
-}
-
-struct TouchEvent {
-   
-    let point : CGPoint
-    let type : MessageType
-    let source : EventSource
-    
-}
-
-
-
 class ViewController: UIViewController, BLEManagerDelegate {
 
     @IBOutlet weak var drawView: DrawView!
     
     @IBOutlet weak var connectedLabel: UILabel!
+    
     @IBAction func clearPressed() {
        
         drawView.clear()

@@ -15,6 +15,22 @@ enum MessageType : UInt8 {
     case touchMoved = 0x02
 }
 
+enum EventSource {
+    case Remote
+    case Local
+}
+
+//This is the main struct used for all drawing events
+struct TouchEvent {
+    
+    let point : CGPoint
+    let type : MessageType
+    let source : EventSource
+    
+}
+
+//# MARK: BLE-related
+
 func messageTypeFromByte(byte: UInt8) -> MessageType {
    
     switch byte {
