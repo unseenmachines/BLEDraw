@@ -20,14 +20,7 @@ class DrawView : UIView {
    
     var imageView : UIImageView!
     
-    func denormalize(normalizedPoint : CGPoint) -> CGPoint {
-       
-        let denormalizedX = normalizedPoint.x * self.frame.width
-        let denormalizedY = normalizedPoint.y * self.frame.height
-        
-        return CGPointMake(denormalizedX, denormalizedY)
-        
-    }
+
     
     func handleTouchEvent(event: TouchEvent) {
      
@@ -103,6 +96,15 @@ class DrawView : UIView {
         self.imageView.image = nil
     }
   
+    //Helper method to denormalize point to local frame size
+    func denormalize(normalizedPoint : CGPoint) -> CGPoint {
+        
+        let denormalizedX = normalizedPoint.x * self.frame.width
+        let denormalizedY = normalizedPoint.y * self.frame.height
+        
+        return CGPointMake(denormalizedX, denormalizedY)
+        
+    }
     
     
 }
