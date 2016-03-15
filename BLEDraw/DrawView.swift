@@ -22,6 +22,7 @@ class DrawView : UIView {
     
 
     
+    //All drawing should happen through this method
     func handleTouchEvent(event: TouchEvent) {
      
         dispatch_async(dispatch_get_main_queue(), {
@@ -45,11 +46,7 @@ class DrawView : UIView {
         
     }
    
-    func startStroke(normalizedPoint: CGPoint, source : EventSource) {
-      
-        previousPoints[source] = self.denormalize(normalizedPoint)
-        
-    }
+
     
     func setupImageViews() {
      
@@ -65,7 +62,13 @@ class DrawView : UIView {
         
     }
     
-    func addPointToStroke(normalizedPoint: CGPoint, color: UIColor, source : EventSource) {
+    private func startStroke(normalizedPoint: CGPoint, source : EventSource) {
+        
+        previousPoints[source] = self.denormalize(normalizedPoint)
+        
+    }
+    
+    private func addPointToStroke(normalizedPoint: CGPoint, color: UIColor, source : EventSource) {
 
         let point = self.denormalize(normalizedPoint)
         
