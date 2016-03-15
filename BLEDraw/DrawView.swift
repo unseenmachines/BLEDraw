@@ -50,6 +50,10 @@ class DrawView : UIView {
                 self.addPointToStroke(event.point, color: self.lineColours[event.source]!, source: event.source)
                 break
                 
+            case .clearPressed:
+                self.clear()
+                break
+                
             default:
                 break
                 
@@ -97,7 +101,7 @@ class DrawView : UIView {
     }
     
     
-    func clear() {
+    private func clear() {
         self.imageView.image = nil
     }
   
