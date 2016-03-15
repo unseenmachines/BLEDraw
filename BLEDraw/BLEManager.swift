@@ -23,7 +23,7 @@ protocol BLEManagerDelegate {
 
     Interface: 
         - to send to remote peripheral, call sendToRemote
-        - to recieve, implement didReceiveMessage delegate method as specified in the BLEManagerDelegate protocol
+        - to receive, implement didReceiveMessage delegate method as specified in the BLEManagerDelegate protocol
 */
 
 class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate {
