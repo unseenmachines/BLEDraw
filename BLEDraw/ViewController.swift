@@ -54,7 +54,7 @@ class ViewController: UIViewController, BLEManagerDelegate {
         })
         
         touchEventSignal
-            .filter({ next in next.source == .Local})
+            .filter({ next in next.source == EventSource.Local})
             .observeNext({ next in
                 //print("Sending \(next.type) message to remote")
                 self.bluetoothManager.sendToRemote(BLEMessage(type: next.type, point: next.point))
