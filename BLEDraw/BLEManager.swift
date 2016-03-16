@@ -64,15 +64,12 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     //If we're connected but there isn't the expected characteristic to write to, we don't want to report being connected
     func isConnected() -> Bool {
        
-        if self.drawCharacteristic != nil {
-            return true
-        } else {
-            return false
-        }
+        return self.drawCharacteristic != nil
         
     }
     
     func handleDisconnection() {
+        
         self.stopPeripheralService()
        
         self.drawCharacteristic = nil
@@ -159,7 +156,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
             
             if (request.characteristic.UUID == charactertisticUUID) {
                 
-                delegate?.didReceiveMessage(BLEMessage(data: request.value!))
+                self.delegate?.didReceiveMessage(BLEMessage(data: request.value!))
                 
             }
         }
@@ -249,7 +246,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
                 print("Discovered characteristic!")
                 drawCharacteristic = characteristic
                 
-                self.delegate.connectionStateChanged(self.isConnected())
+                self.delegate?.connectionStateChanged(self.isConnected())
                 
                 peripheral.setNotifyValue(true, forCharacteristic: characteristic)
             }
