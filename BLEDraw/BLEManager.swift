@@ -35,13 +35,9 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     
     var drawCharacteristic : CBCharacteristic!
     
-    var discoveredPeripherals : Set<CBPeripheral> = []
     var discoveredPeripheral : CBPeripheral!
     
     var delegate : BLEManagerDelegate!
-   
-    let numberofPointsPerPacket = 2
-    var pointCounter = 0
  
     let bluetoothQueue = dispatch_queue_create("com.elliotsinyor.blequeue", DISPATCH_QUEUE_SERIAL);
   
@@ -205,7 +201,7 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     
         if (discoveredUUIDS[0] as! CBUUID == serviceUUID) {
             print("UUID is the same")
-            discoveredPeripherals.insert(peripheral)
+            
             discoveredPeripheral = peripheral
             peripheral.delegate = self
             centralManager.connectPeripheral(peripheral, options: nil)
