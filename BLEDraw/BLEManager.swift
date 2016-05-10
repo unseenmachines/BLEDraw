@@ -110,19 +110,25 @@ class BLEManager : NSObject, CBPeripheralManagerDelegate, CBCentralManagerDelega
     
     func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager) {
        
-        if (peripheral.state == CBPeripheralManagerState.PoweredOn) {
-         
+        switch peripheral.state {
+        
+        case .PoweredOn:
             self.startPeripheralService()
-           
-            print("Starting peripheral service")
-        } else if (peripheral.state == CBPeripheralManagerState.PoweredOff) {
-            
+            break
+        
+        case .PoweredOff:
             self.handleDisconnection()
+            break
+            
+        default:
+            break
         }
         
     }
     
     func startPeripheralService() {
+        
+        print("Starting peripheral service")
         
         let mutableChar = CBMutableCharacteristic(type: charactertisticUUID, properties: [CBCharacteristicProperties.WriteWithoutResponse, CBCharacteristicProperties.Indicate, CBCharacteristicProperties.Read], value: nil, permissions: CBAttributePermissions.Writeable)
         
