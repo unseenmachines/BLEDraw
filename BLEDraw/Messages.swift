@@ -85,7 +85,7 @@ struct BLEMessage {
  
     }
    
-    func point() -> CGPoint! {
+    func point() -> CGPoint? {
        
         guard rawData != nil else { return nil }
        
@@ -105,7 +105,7 @@ struct BLEMessage {
 //# MARK: Helpers
 extension NSData {
     
-    func firstByte() -> UInt8! {
+    func firstByte() -> UInt8? {
         
         guard self.length > 0 else { return nil }
         

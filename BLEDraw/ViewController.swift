@@ -137,7 +137,7 @@ override func prefersStatusBarHidden() -> Bool {
 
 //# MARK Helper methods
     
-    func touchEventFromTouches(touches: Set<UITouch>, type: MessageType) -> TouchEvent! {
+    func touchEventFromTouches(touches: Set<UITouch>, type: MessageType) -> TouchEvent? {
         
         guard let touch = touches.first else { return nil }
         guard touch.view! == self.drawView else { return nil }
